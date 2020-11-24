@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BP_ANN", "BP_ANN\BP_ANN.pyproj", "{B0380D0C-5F12-4ADB-9513-87682B4F19B4}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "GymTest", "GymTest\GymTest.pyproj", "{7F1317B5-4A89-461A-B7B2-40E3B3CAEEDF}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "StrategyIteration", "StrategyIteration\StrategyIteration.pyproj", "{3E8FB469-89AB-41D3-ACFC-930C87CC1259}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ValueIteration", "ValueIteration\ValueIteration.pyproj", "{BE8DAC6F-162A-44F1-9B5F-BA40A2CFF411}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "LIFResolvation", "LIFResolvation\LIFResolvation.pyproj", "{866B7956-C236-46E9-B366-E702CA5AA849}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SnakeAI", "SnakeAI\SnakeAI.pyproj", "{3A451C11-A7D0-489E-82C1-09D82E51DEE5}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TF_Test", "TF_Test\TF_Test.pyproj", "{F3B5F42E-CB1B-422B-B255-3E43469E1B28}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CartPole", "CartPole\CartPole.pyproj", "{D20120B3-7EDA-44C0-9FE5-560CCA52BA90}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TFGradient", "TFGradient\TFGradient.pyproj", "{64FB9E45-101F-4C20-A351-B17CBCAD8D0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0380D0C-5F12-4ADB-9513-87682B4F19B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0380D0C-5F12-4ADB-9513-87682B4F19B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F1317B5-4A89-461A-B7B2-40E3B3CAEEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F1317B5-4A89-461A-B7B2-40E3B3CAEEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8FB469-89AB-41D3-ACFC-930C87CC1259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8FB469-89AB-41D3-ACFC-930C87CC1259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8DAC6F-162A-44F1-9B5F-BA40A2CFF411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8DAC6F-162A-44F1-9B5F-BA40A2CFF411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866B7956-C236-46E9-B366-E702CA5AA849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866B7956-C236-46E9-B366-E702CA5AA849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A451C11-A7D0-489E-82C1-09D82E51DEE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A451C11-A7D0-489E-82C1-09D82E51DEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B5F42E-CB1B-422B-B255-3E43469E1B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B5F42E-CB1B-422B-B255-3E43469E1B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20120B3-7EDA-44C0-9FE5-560CCA52BA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20120B3-7EDA-44C0-9FE5-560CCA52BA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64FB9E45-101F-4C20-A351-B17CBCAD8D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64FB9E45-101F-4C20-A351-B17CBCAD8D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AC33B21-908D-48D4-826F-B49B22AB61BC}
+	EndGlobalSection
+EndGlobal
