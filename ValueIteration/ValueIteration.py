@@ -11,6 +11,7 @@ class MapEnv:
 		self.propa=np.zeros((node,node,node))
 		self.state_done=np.zeros((node,))
 		self.state_done[node-1]=1.0
+		self.dijkstra_value=np.ones((node,))*(-alllength)#迪杰斯特拉算法评估状态价值
 		self.pos=0
 		self.reward=0.0
 		for s,t,r in edge:
@@ -21,12 +22,22 @@ class MapEnv:
 			self.propa[s,t,t]=1.0
 			if t!=(node-1):
 				self.rewards[t,s]=-r
-				self.propa[t,s,s]=1.0
+				#self.propa[t,s,s]=1.0
+
+		#迪杰斯特拉算法
+		self.dijkstra_value[-1]=0.0
+		for i in range(node):
+			mini=np.argmax(self.dijkstra_value)
+			for j in range(node):
+				if i==j:
+					continue
+				if self.prapa[mini,j,j]==1.0 and (self.dijkstra_value[mini]+self.reward[mini,j])>self.dijkstra_value[j]:
+					self.dijastra_value[j]=self.dijkstra_value[mini]+self.reward[mini,j]
 
 	def step(self,a):
 		assert a<self.action_count and a>=0
 		self.reward+=self.rewards[self.pos,a]
-		if self.prapa[self.pos,a]==1.0:
+		if self.prapa[self.pos,a,a]==1.0:
 			self.pos=a
 
 	def reset(self):

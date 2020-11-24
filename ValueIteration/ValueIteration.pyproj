@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>be8dac6f-162a-44f1-9b5f-ba40a2cff411</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ValueIteration.py</StartupFile>
+    <StartupFile>ValueEvaluation.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ValueEvaluation.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ValueIteration.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
