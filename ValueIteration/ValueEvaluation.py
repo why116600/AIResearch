@@ -17,7 +17,7 @@ def main():
 	print("Start value evaluation")
 	map=MapEnv(4,[(0,1,1.0),(0,2,3.0),(1,2,1.0),(2,3,2.0)])
 	values=np.zeros((4,))
-	for i in range(1000):
+	for i in range(100):
 		newValue=NewValue(values,map)
 		distance=np.dot(newValue-values,newValue-values)
 		if distance<4.0:

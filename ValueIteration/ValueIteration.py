@@ -21,27 +21,38 @@ class MapEnv:
 			reward=self.state_done[t]*alllength-r
 			self.rewards[s,t]=reward
 			self.propa[s,t,t]=1.0
+			#if t!=(node-1):
+				#self.rewards[s,t]=-r
 			reward=self.state_done[s]*alllength-r
 			self.rewards[t,s]=reward
 			self.propa[t,s,s]=1.0
-			if t!=(node-1):
-				self.rewards[t,s]=-r
+			#if s!=(node-1):
+				#self.rewards[t,s]=-r
 				#self.propa[t,s,s]=1.0
+		#print('rewards:',self.rewards)
 
 		#迪杰斯特拉算法
 		self.dijkstra_value[-1]=0.0
 		eternal=set()
 		for i in range(node):
-			mini=0
+			mini=-1
 			for j in range(self.dijkstra_value.shape[0]):
-				if j not in eternal and self.dijkstra_value[mini]<self.dijkstra_value[j]:
+				if j not in eternal and (mini<0 or self.dijkstra_value[mini]<self.dijkstra_value[j]):
 					mini=j
+			if mini<0:
+				break
 			eternal.add(mini)
+			#print('make %d eternal'%(mini,))
 			for j in range(node):
-				if i==j or j in eternal:
+				if j in eternal:
 					continue
-				if self.propa[j,mini,mini]==1.0 and (self.dijkstra_value[mini]+self.rewards[j,mini])>self.dijkstra_value[j]:
-					self.dijkstra_value[j]=self.dijkstra_value[mini]+self.rewards[j,mini]
+				v=self.dijkstra_value[mini]+self.rewards[j,mini]
+				#print('check [%d]:%f-%f'%(j,self.dijkstra_value[j],v))
+				if self.propa[j,mini,mini]==1.0 and v>self.dijkstra_value[j]:
+					self.dijkstra_value[j]=v
+					#print('update [%d]=%f'%(j,self.dijkstra_value[j]))
+
+		print('Dijkstra value:',self.dijkstra_value)
 
 	def step(self,a):
 		assert a<self.action_count and a>=0
