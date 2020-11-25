@@ -5,7 +5,9 @@ def NewValue(values,env):
 	RetValue=np.zeros(values.shape)
 	for i in range(values.shape[0]):
 		sum=0.0
-		matAV=np.dot(env.propa[i],env.dijkstra_value-env.negative)
+		if env.state_done[i]!=0.0:
+			continue
+		matAV=np.dot(env.propa[i],env.dijkstra_value+env.rewards[i,:]-env.negative)
 		action=np.argmax(matAV)
 		if matAV[action]==0.0:
 			continue
