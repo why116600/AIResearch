@@ -7,7 +7,7 @@ class MapEnv:
 		alllength=0.0
 		for s,t,r in edge:
 			alllength+=r
-		self.negative=alllength
+		self.negative=-alllength
 		self.rewards=np.ones((node,node))*(-alllength)
 		self.propa=np.zeros((node,node,node))
 		self.state_done=np.zeros((node,))
@@ -21,19 +21,27 @@ class MapEnv:
 			reward=self.state_done[t]*alllength-r
 			self.rewards[s,t]=reward
 			self.propa[s,t,t]=1.0
+			reward=self.state_done[s]*alllength-r
+			self.rewards[t,s]=reward
+			self.propa[t,s,s]=1.0
 			if t!=(node-1):
 				self.rewards[t,s]=-r
 				#self.propa[t,s,s]=1.0
 
 		#迪杰斯特拉算法
 		self.dijkstra_value[-1]=0.0
+		eternal=set()
 		for i in range(node):
-			mini=np.argmax(self.dijkstra_value)
+			mini=0
+			for j in range(self.dijkstra_value.shape[0]):
+				if j not in eternal and self.dijkstra_value[mini]<self.dijkstra_value[j]:
+					mini=j
+			eternal.add(mini)
 			for j in range(node):
-				if i==j:
+				if i==j or j in eternal:
 					continue
-				if self.propa[mini,j,j]==1.0 and (self.dijkstra_value[mini]+self.reward[mini,j])>self.dijkstra_value[j]:
-					self.dijkstra_value[j]=self.dijkstra_value[mini]+self.reward[mini,j]
+				if self.propa[j,mini,mini]==1.0 and (self.dijkstra_value[mini]+self.rewards[j,mini])>self.dijkstra_value[j]:
+					self.dijkstra_value[j]=self.dijkstra_value[mini]+self.rewards[j,mini]
 
 	def step(self,a):
 		assert a<self.action_count and a>=0
