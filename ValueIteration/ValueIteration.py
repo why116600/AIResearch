@@ -7,6 +7,7 @@ class MapEnv:
 		alllength=0.0
 		for s,t,r in edge:
 			alllength+=r
+		self.negative=alllength
 		self.rewards=np.ones((node,node))*(-alllength)
 		self.propa=np.zeros((node,node,node))
 		self.state_done=np.zeros((node,))
@@ -31,13 +32,13 @@ class MapEnv:
 			for j in range(node):
 				if i==j:
 					continue
-				if self.prapa[mini,j,j]==1.0 and (self.dijkstra_value[mini]+self.reward[mini,j])>self.dijkstra_value[j]:
-					self.dijastra_value[j]=self.dijkstra_value[mini]+self.reward[mini,j]
+				if self.propa[mini,j,j]==1.0 and (self.dijkstra_value[mini]+self.reward[mini,j])>self.dijkstra_value[j]:
+					self.dijkstra_value[j]=self.dijkstra_value[mini]+self.reward[mini,j]
 
 	def step(self,a):
 		assert a<self.action_count and a>=0
 		self.reward+=self.rewards[self.pos,a]
-		if self.prapa[self.pos,a,a]==1.0:
+		if self.propa[self.pos,a,a]==1.0:
 			self.pos=a
 
 	def reset(self):
